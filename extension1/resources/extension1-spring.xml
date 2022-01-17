@@ -76,6 +76,10 @@
         <constructor-arg ref="extension1Service"/>
     </bean>
 
+    <bean id="extension1CustomSetup" class="extension1.setup.Extension1CustomSetup" >
+        <property name="importService" ref="importService"/>
+    </bean>
+
     <bean id="extension1Service" class="extension1.service.impl.DefaultExtension1Service">
         <!-- setter injection example -->
         <property name="modelService" ref="modelService"/>

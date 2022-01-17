@@ -9,6 +9,7 @@
         <collectiontype code="MyOrderEntryCollection" elementtype="MyOrderEntry" type="list"/>
         <collectiontype code="MemberCollection" elementtype="Member"/>
         <collectiontype code="MemberGroupCollection" elementtype="MemberGroup"/>
+        <collectiontype code="MyTestCollection" elementtype="TestEmptyClass"/>
 
     </collectiontypes>
 
@@ -63,13 +64,40 @@
                 <modifiers read="true" write="true" search="true" optional="true"/>
             </targetElement>
         </relation>
-        
+
+        <relation code="ItemWithAllTypeAttributes2String" localized="false">
+            <sourceElement type="ItemWithAllTypeAttributes" qualifier="item" cardinality="one">
+                <modifiers read="true" write="true" search="true" optional="true" />
+            </sourceElement>
+            <targetElement type="TestEmptyClass" qualifier="collection"
+                           cardinality="many" ordered="false">
+                <modifiers read="true" write="true" search="true" optional="true" partof="true" />
+            </targetElement>
+        </relation>
+
     </relations>
 
     <itemtypes>
 
+        <itemtype code="TestEmptyClass"
+                  jaloclass="extension1.jalo.TestEmptyClass"
+                  extends="GenericItem">
+            <deployment table="TestEmptyClasses" typecode="11119"/>
+        </itemtype>
+
+        <itemtype code="MyTestClass">
+            <deployment table="MyTestClasses" typecode="30275" />
+            <attributes>
+                <attribute qualifier="string" type="java.lang.String">
+                    <persistence type="property"/>
+                </attribute>
+                <attribute qualifier="int" type="java.lang.Integer">
+                    <persistence type="property"/>
+                </attribute>
+            </attributes>
+        </itemtype>
+
         <itemtype code="MyProduct"
-                  jaloclass="extension1.jalo.MyProduct"
                   extends="Product">
             <attributes>
                 <attribute qualifier="myExampleInitialStringField" type="java.lang.String">
@@ -92,26 +120,20 @@
 
 <!--        1-1 relation start-->
 
-        <itemtype code="MyTestParent"
-                  jaloclass="extension1.jalo.MyTestParent"
-                  extends="GenericItem">
-            <deployment table="MyTestParents" typecode="11111"/>
+        <itemtype code="MyTestParent">
+            <deployment table="MyTestParents" typecode="30276"/>
             <attributes>
                 <attribute qualifier="testKid" type="MyTestKid">
-                    <modifiers read="true" write="true" partof="true"/>
                     <persistence type="property"/>
                 </attribute>
             </attributes>
         </itemtype>
 
-        <itemtype code="MyTestKid"
-                  jaloclass="extension1.jalo.MyTestKid"
-                  extends="GenericItem">
-            <deployment table="MyTestKids" typecode="11112"/>
+        <itemtype code="MyTestKid">
+            <deployment table="MyTestKids" typecode="30277"/>
             <attributes>
-                <attribute qualifier="parent" type="MyTestParent">
+                <attribute qualifier="testParent" type="MyTestParent">
                     <persistence type="property"/>
-                    <modifiers read="true" write="false" search="true" optional="true" private="false" initial="true"/>
                 </attribute>
             </attributes>
         </itemtype>
@@ -154,6 +176,33 @@
             <deployment table="MemberGroups" typecode="11117"/>
             <attributes>
                 <attribute qualifier="members" type="MemberCollection"/>
+            </attributes>
+        </itemtype>
+
+        <itemtype code="ItemWithAllTypeAttributes"
+                  jaloclass="extension1.jalo.ItemWithAllTypeAttributes"
+                  extends="GenericItem">
+            <deployment table="ItemsWithAllAttr" typecode="11118"/>
+            <attributes>
+                <attribute qualifier="item" type="MyTestParent">
+                    <modifiers read="true" write="true"/>
+                    <persistence type="property"/>
+                </attribute>
+                <attribute qualifier="map" type="MyTestMap">
+                    <modifiers read="true" write="true"/>
+                    <persistence type="property"/>
+                </attribute>
+<!--                <attribute qualifier="collection" type="MyTestCollection">-->
+<!--                    <modifiers read="true" write="true"/>-->
+<!--                </attribute>-->
+                <attribute qualifier="enum" type="MyTestEnum">
+                    <modifiers read="true" write="true"/>
+                    <persistence type="property"/>
+                </attribute>
+                <attribute qualifier="relation" type="MemberGroupRelation">
+                    <modifiers read="true" write="true"/>
+                    <persistence type="property"/>
+                </attribute>
             </attributes>
         </itemtype>
 

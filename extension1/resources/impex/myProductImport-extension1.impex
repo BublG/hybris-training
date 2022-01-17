@@ -1,0 +1,3 @@
+INSERT MyProduct;myExampleInitialStringField;myExampleBooleanField
+aabbcc;true
+ccbbaa;false
