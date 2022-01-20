@@ -91,4 +91,7 @@
           parent="defaultProductService"/>
 
     <alias alias="productService" name="trainingProductService"/>
+
+    <bean id="myProductService" class="extension1.service.impl.MyDefaultProductService"
+          parent="abstractBusinessService" />
 </beans>
