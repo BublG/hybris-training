@@ -206,5 +206,22 @@
             </attributes>
         </itemtype>
 
+        <itemtype code="ContactRequest"
+                  extends="GenericItem">
+            <deployment table="UserRights" typecode="32667"/>
+            <attributes>
+                <attribute qualifier="message" type="java.lang.String">
+                    <description>Message</description>
+                    <modifiers initial="true"/>
+                    <persistence type="property"/>
+                </attribute>
+                <attribute qualifier="sender" type="java.lang.String">
+                    <description>Sender</description>
+                    <modifiers initial="true"/>
+                    <persistence type="property"/>
+                </attribute>
+            </attributes>
+        </itemtype>
+
     </itemtypes>
 </items>
