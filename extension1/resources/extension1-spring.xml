@@ -86,5 +86,9 @@
         <property name="mediaService" ref="mediaService"/>
         <property name="flexibleSearchService" ref="flexibleSearchService"/>
     </bean>
-			
+
+    <bean id="trainingProductService" class="extension1.service.impl.DefaultTrainingProductService"
+          parent="defaultProductService"/>
+
+    <alias alias="productService" name="trainingProductService"/>
 </beans>
