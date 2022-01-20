@@ -7,16 +7,14 @@ import de.hybris.platform.servicelayer.exceptions.UnknownIdentifierException;
 import de.hybris.platform.servicelayer.search.FlexibleSearchQuery;
 import de.hybris.platform.servicelayer.search.FlexibleSearchService;
 import de.hybris.platform.servicelayer.search.SearchResult;
-import extension1.service.TrainingProductService;
 
 import javax.annotation.Resource;
 
-public class DefaultTrainingProductService extends DefaultProductService implements TrainingProductService {
+public class DefaultTrainingProductService extends DefaultProductService {
     @Resource
     private FlexibleSearchService flexibleSearchService;
 
-    @Override
-    public ProductModel getProductForCode(String code, String name) {
+    public ProductModel getProductForCodeAndName(String code, String name) {
         final FlexibleSearchQuery query = new FlexibleSearchQuery("SELECT {pk} FROM {Product} WHERE "
                 + "{code}=?code AND {name} LIKE %?name%");
         query.addQueryParameter(ProductModel.CODE, code);
@@ -29,5 +27,10 @@ public class DefaultTrainingProductService extends DefaultProductService impleme
             throw new AmbiguousIdentifierException("Product code and name is not unique!");
         }
         return result.getResult().get(0);
+    }
+
+    @Override
+    public ProductModel getProductForCode(String code) {
+        return getProductForCodeAndName(code,"AMD");
     }
 }

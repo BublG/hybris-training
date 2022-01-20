@@ -1,8 +1,8 @@
 package extension1.controller;
 
-import de.hybris.platform.catalog.CatalogService;
 import de.hybris.platform.catalog.CatalogVersionService;
 import de.hybris.platform.core.model.product.ProductModel;
+import de.hybris.platform.product.ProductService;
 import extension1.service.TrainingProductService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
@@ -23,7 +23,7 @@ public class TrainingProductController {
     private CatalogVersionService catalogVersionService;
     @Autowired
     @Qualifier("productService")
-    private TrainingProductService trainingProductService;
+    private ProductService productService;
 
     @RequestMapping(method = RequestMethod.GET)
     public ModelAndView showPage(@RequestParam(required = false) String code,
@@ -32,7 +32,7 @@ public class TrainingProductController {
         ProductModel product = null;
         if (code != null && name != null)
         {
-            product = trainingProductService.getProductForCode(code, name);
+            product = productService.getProductForCode(code);
         }
         final Map<String, Object> model = new HashMap<>();
         model.put("product", product);
