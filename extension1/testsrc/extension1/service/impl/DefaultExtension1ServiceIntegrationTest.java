@@ -18,7 +18,6 @@ import org.junit.Before;
 import org.junit.Test;
 
 import extension1.service.Extension1Service;
-import extension1.service.impl.DefaultExtension1Service;
 
 
 /**
