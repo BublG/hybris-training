@@ -89,9 +89,11 @@
 
     <bean id="trainingProductService" class="extension1.service.impl.DefaultTrainingProductService"
           parent="defaultProductService"/>
-
     <alias alias="productService" name="trainingProductService"/>
 
     <bean id="myProductService" class="extension1.service.impl.MyDefaultProductService"
           parent="abstractBusinessService" />
+
+    <bean id = "defaultContactRequestFacade" class ="extension1.facade.impl.DefaultContactRequestFacade" />
+    <alias alias = "contactRequestFacade" name = "defaultContactRequestFacade" />
 </beans>

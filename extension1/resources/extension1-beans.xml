@@ -59,4 +59,11 @@
 
 	-->
 
+	<bean class = "extension1.data.ContactRequestData">
+		<description >Data object for a tour summary which has no equivalent on the type system</description>
+		<property name = "date" type = "String" />
+		<property name = "message" type = "String" />
+		<property name = "sender" type = "String" />
+	</bean>
+
 </beans>
