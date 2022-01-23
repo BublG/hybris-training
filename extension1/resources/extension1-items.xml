@@ -94,6 +94,10 @@
                 <attribute qualifier="int" type="java.lang.Integer">
                     <persistence type="property"/>
                 </attribute>
+                <attribute qualifier="stringPlusInt" type="java.lang.String">
+                    <persistence type="dynamic" attributeHandler="stringPlusIntAttributeHandler"/>
+                    <modifiers read="true" write="false"/>
+                </attribute>
             </attributes>
         </itemtype>
 
