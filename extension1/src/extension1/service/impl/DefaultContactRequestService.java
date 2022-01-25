@@ -2,21 +2,22 @@ package extension1.service.impl;
 
 import de.hybris.platform.servicelayer.exceptions.AmbiguousIdentifierException;
 import de.hybris.platform.servicelayer.exceptions.UnknownIdentifierException;
-import de.hybris.platform.servicelayer.search.FlexibleSearchQuery;
-import de.hybris.platform.servicelayer.search.FlexibleSearchService;
-import de.hybris.platform.servicelayer.search.SearchResult;
 import extension1.dao.ContactRequestDao;
 import extension1.model.ContactRequestModel;
 import extension1.service.ContactRequestService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
-import javax.annotation.Resource;
 import java.util.List;
 
 @Service
 public class DefaultContactRequestService implements ContactRequestService {
-    @Resource
+
     private ContactRequestDao contactRequestDao;
+
+    @Autowired
+    public void setContactRequestDao(ContactRequestDao contactRequestDao) {
+        this.contactRequestDao = contactRequestDao;
+    }
 
     @Override
     public ContactRequestModel getContactRequest(String sender) {

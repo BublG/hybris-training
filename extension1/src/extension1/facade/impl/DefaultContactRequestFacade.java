@@ -4,13 +4,17 @@ import extension1.data.ContactRequestData;
 import extension1.facade.ContactRequestFacade;
 import extension1.model.ContactRequestModel;
 import extension1.service.ContactRequestService;
+import org.springframework.beans.factory.annotation.Autowired;
 
-import javax.annotation.Resource;
 import java.util.Date;
 
 public class DefaultContactRequestFacade implements ContactRequestFacade {
-    @Resource
     private ContactRequestService contactRequestService;
+
+    @Autowired
+    public void setContactRequestService(ContactRequestService contactRequestService) {
+        this.contactRequestService = contactRequestService;
+    }
 
     @Override
     public ContactRequestData getContactRequestDetails(String sender) {

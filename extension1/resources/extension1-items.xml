@@ -101,6 +101,20 @@
             </attributes>
         </itemtype>
 
+        <itemtype code="News">
+            <deployment table="News" typecode="30270" />
+            <attributes>
+                <attribute qualifier="date" type="java.util.Date">
+                    <description>date of news item</description>
+                    <persistence type="property" />
+                </attribute>
+                <attribute qualifier="content" type="java.lang.String">
+                    <description>fuller description of the news item</description>
+                    <persistence type="property" />
+                </attribute>
+            </attributes>
+        </itemtype>
+
         <itemtype code="MyProduct"
                   extends="Product">
             <attributes>
