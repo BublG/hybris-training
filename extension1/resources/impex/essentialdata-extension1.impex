@@ -1,4 +1,13 @@
-INSERT MyTestClass;string;int
-;str1;1
-;str2;2
-;str3;3
+INSERT MyTestClass; string; int
+                  ; str1  ; 1
+                  ; str2  ; 2
+                  ; str3  ; 3
+
+INSERT TokenWrapper; token
+                   ; 12345
+
+INSERT_UPDATE CronJob; code[unique = true]  ; job(code)           ; singleExecutable; sessionLanguage(isocode)
+                     ; generateTokenCronJob ; generateNewTokenJob ; false           ; en
+
+INSERT_UPDATE Trigger; cronjob(code)[unique = true]; cronExpression
+                     ; generateTokenCronJob        ; 0 0/30 * * * *

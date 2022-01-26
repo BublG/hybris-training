@@ -110,4 +110,8 @@
         <property name="interceptor" ref="myTestClassInterceptor" />
         <property name="typeCode" value="MyTestClass" />
     </bean>
+
+    <alias name="defaultTokenWrapperDao" alias="tokenWrapperDao"/>
+
+    <bean id="generateNewTokenJob" class="extension1.jobs.GenerateNewTokenJob" parent="abstractJobPerformable"/>
 </beans>
