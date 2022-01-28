@@ -98,6 +98,9 @@
                     <persistence type="dynamic" attributeHandler="stringPlusIntAttributeHandler"/>
                     <modifiers read="true" write="false"/>
                 </attribute>
+                <attribute qualifier="description" type="localized:java.lang.String">
+                    <persistence type="property"/>
+                </attribute>
             </attributes>
         </itemtype>
 

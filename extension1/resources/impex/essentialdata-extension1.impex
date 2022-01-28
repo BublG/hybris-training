@@ -1,7 +1,7 @@
-INSERT MyTestClass; string; int
-                  ; str1  ; 1
-                  ; str2  ; 2
-                  ; str3  ; 3
+INSERT MyTestClass; string; int; description[lang = en]; description[lang = ru]
+                  ; str1  ; 1  ; description           ; описание
+                  ; str2  ; 2  ; English               ; русский
+                  ; str3  ; 3  ; British villain       ; злодей-британец
 
 INSERT TokenWrapper; token
                    ; 12345
