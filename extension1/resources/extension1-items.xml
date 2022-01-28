@@ -92,7 +92,9 @@
                     <persistence type="property"/>
                 </attribute>
                 <attribute qualifier="int" type="java.lang.Integer">
+                    <defaultvalue>0</defaultvalue>
                     <persistence type="property"/>
+                    <modifiers unique="true" optional="false"/>
                 </attribute>
                 <attribute qualifier="stringPlusInt" type="java.lang.String">
                     <persistence type="dynamic" attributeHandler="stringPlusIntAttributeHandler"/>
